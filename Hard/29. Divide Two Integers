@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int divide(long long int dividend,long long int divisor) {
+        int sign=1;
+
+        if((dividend ^ divisor)>=0) sign =0;
+
+        if(dividend == 0 ) return 0;
+        else if(divisor ==1) return dividend; 
+
+        else {
+            if(sign==1){
+                if(-(exp(log(abs(dividend))-log(abs(divisor))))<=INT_MIN) return INT_MIN;
+                else return -(exp(log(abs(dividend))-log(abs(divisor)) + 0.0000000001));
+            }
+            else{
+                if((exp(log(abs(dividend))-log(abs(divisor))))>=INT_MAX) return INT_MAX;
+                else return (exp(log(abs(dividend))-log(abs(divisor))) + 0.0000000001);
+            }
+        }   
+    }
+};
