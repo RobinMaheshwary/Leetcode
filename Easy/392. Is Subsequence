@@ -1,0 +1,17 @@
+class Solution {
+public:
+
+    bool isSubsequence(string s, string t) {
+        int n = s.length(),m=t.length();
+        if(n==0) return true;
+        while(n>0 && m>0){
+            if(s[n-1]==t[m-1]) {
+                n--;
+                m--;
+            }
+            else m--;
+            if(n==0) return true;
+        }
+        return false;
+    }
+};
